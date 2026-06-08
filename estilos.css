@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*NAVBAR --- base movil*/
+.navbar {
+    display: flex;                     /*Activa el flexbox*/
+    justify-content: space-between;    /* logo a la izquierda, links a la derecha*/
+    align-items: center;
+    padding: 1rem;
+    background-color: #c8102e;
+}
+
+.logo {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: none;      
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+/*NAVBAR - TABLET Y DESKTOP*/
+@media (min-width: 768px){
+    .navbar {
+        padding: 1rem 2rem;         /*mas padding en pantallas grandes*/
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        display: flex;              /*visible desde tablet*/
+        gap: 2rem;
+    }
+}
+/*HERO movil*/
+
+.hero {
+    width: 100%;
+    height: 35vh;
+    background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1400');
+    background-size: cover;         /*la imagen cubre todo el espacio*/
+    background-position: center;    /*centrada*/
+    display: flex;                  /* flexbox para centrar el texto*/
+    align-items: center;            /* centrado vertical*/
+    padding: 0 1rem;
+}
+
+.hero h1 {
+    font-size: 1.3rem;
+    color: white;
+    max-width: 600px; 
+    line-height: 1.3;     /*espaciando entre lineas de texto*/
+}
+
+
+/*HERO - TABLET*/
+@media (min-width: 768px){
+    .hero {
+        height: 40vh;
+        padding: 0 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/*HERO DESKTOP*/
+@media (min-width: 1024px){
+    .hero {
+        height: 50vh;
+        padding: 0 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+
+/*CONTENEDOR*/
+
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+@media (min-width: 768px){
+    .contenedor {
+        width: 90%;
+    }
+}
+
+/*SECCION DE TARJETAS*/
+
+.seccion-titulo {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+.tarjetas {
+    display: flex;          /*activa flexbox en el contenedor padre*/
+    flex-direction: column; /*apiladas en movil*/
+    gap: 1.5rem;            /*espacio entre tarjeta*/
+}
+
+.tarjeta {
+    width: 100%;                /*todo el ancho del movil*/
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;   /*que nada se salga de los bordes redondos*/
+    background-color: white;
+}
+
+.tarjeta img {
+    width: 100%;                 /*ocupa todo el ancho de la tarjeta*/
+    height: 180px;               /*altura fija para q todas la img sean iguales*/
+    object-fit: cover;           /*la foto cubre el espacio sin deformarse */
+    display: block;              /* evita espacio extra debajo de la imagen*/
+}
+
+.tarjeta-info {
+    padding: 1rem;
+}
+
+.tarjeta-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+.tarjeta-info p {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 0.8rem;
+}
+
+.precio {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #c8102e;
+}
+
+/*Tarjetas tablet 2 columnas */
+@media (min-width: 768px) {
+    .seccion-titulo {
+        font-size: 1.5rem;
+    }
+
+    .tarjetas {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .tarjeta {
+        flex: 0 0 calc(50% - 0.75rem);      /*2 por fila*/
+    }
+}
+
+/*TARJETAS DESKTOP 3 COLUMNAS*/
+@media (min-width: 1024px){
+    .tarjeta {
+        flex: 0 0 calc(33.333% - 1rem);     /*3 por fila*/
+    }
+}
+
+/*SECCION DE CONTACTO O CONTACTANOS DE LA PAGINA*/
+
+.contacto {
+    background-color: #f5f5f5;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+.contacto-titulo {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+.contacto-subtitulo {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    padding: 0 1rem;
+}
+
+/* GIRD APLICADO AL FORMULARIO */
+
+.formulario {
+    display: grid;                      /*activa el grid*/
+    grid-template-columns: 1fr;     /* 1 columna movil*/
+    gap: 1rem;                          /*espacio entre campos*/
+    max-width: 700px;
+    margin: 0 auto;                     /*centrado*/
+    padding: 0 1rem;
+}
+
+/*FORMULARIO TABLEX Y DESKTOP 2 COLUMNAS */
+@media (min-width:768px){
+    .formulario {
+        grid-template-columns: 1fr 1fr;
+        padding: 0;
+    }
+
+    .botones {
+        grid-column: 1 / 3;
+    }
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: Arial, sans-serif;
+}
+
+.campo textarea {
+    height: 100px;
+    resize: vertical;   /*el usuario puede agrandarla verticalmente*/
+}
+
+
+.campo-completo {
+    grid-column: 1 / 3;
+}
+
+
+.botones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-cancelar {
+    padding: 0.7rem 2rem;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.btn-enviar {
+    padding: 0.7rem 2rem;
+    background-color: #c8102e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+/*FOOTER*/
+
+.footer {
+    background-color: #9b0000;
+    padding: 1.5rem 2rem;
+    margin-top: 0;
+}
+
+.footer-links-legales {
+    display: flex;          /* los links en fila */
+    flex-wrap: wrap;        /* si no caben, bajan */
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.footer-links-legales a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.footer-links-legales span {
+    color:white;
+    font-size: 0.85rem;
+}
+
+.footer-copyright p {
+    color: white;
+    font-size: 0.85rem;
+}
+
+/* En móvil los links se apilan */
+
+@media (max-width: 480px) {
+    .footer-links-legales {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-links-legales span {
+        display: none;          /* ocultamos los | en móvil */
+    }
+}
+
+
+/*MEDIA QUARIES - permiten decirle al navegador que estilos usar
+                  Solo cuando se cumpla la condición
+                  
+                  max-width aplica cuando es MENOR o IGUAL a 768px 
+                  min-width aplica cuando la pantalla es MAYOR o IGUAL a 768px*/
+
+
+
+/*
+Tema 1   Viewport y unidades    rem, %, vh, vw, max-width
+Tema 2   Media Queries          breakpoints, max/min-width
+Tema 3   Flexbox                navbar, tarjetas, justify-content
+Tema 4   CSS Grid               formulario en columnas, grid-column
+Tema 5   Imágenes responsivas   object-fit, max-width, alt
+Tema 6   Mobile First           min-width, diseño desde celular
+
+*/
+                  
